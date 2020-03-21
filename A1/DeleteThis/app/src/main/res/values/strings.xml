@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DeleteMe</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+    <string name="address_title">Address Title</string>
+    <string name="address_street">Address Street</string>
+</resources>

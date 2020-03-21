@@ -151,7 +151,62 @@ class Student {
     }
 }
 
+class PlaceDescription {
+    var name: String
+    var description: String
+    var category: String
+    var addressTitle: String
+    var addressStreet: Array<String>
+    var elevation: Double
+    var latitude: Double
+    var longitude: Double
+    
+    init (jsonStr: String){
+        self.name = ""
+        self.description = ""
+        self.category = ""
+        self.addressTitle = ""
+        self.addressStreet = [String]()
+        self.elevation = 0.0
+        self.latitude = 0.0
+        self.longitude = 0.0
+        if let data: Data = jsonStr.data(using: String.Encoding.utf8){
+            do{
+                let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:Any]
+                self.name = (dict!["name"] as? String)!
+                self.description = (dict!["description"] as? String)!
+                self.category = (dict!["category"] as? String)!
+                self.addressTitle = (dict!["address-title"] as? String)!
+                self.addressStreet = (dict!["address-street"] as? Array<String>)!
+                self.elevation = (dict!["elevation"] as? Double)!
+                self.latitude = (dict!["latitude"] as? Double)!
+                self.longitude = (dict!["longitude"] as? Double)!
+            } catch {
+                print("unable to convert to dictionary")
+                
+            }
+        }
+    }
+    
+    func toJsonString() -> String {
+        var jsonStr = "";
+        let dict:[String:Any] = ["name": name, "description": description, "category": category, "ç":addressTitle, "addressStreet":addressStreet, "elevation": elevation, "latitude": latitude, "longtitude": longitude] as [String : Any]
+        do {
+            let jsonData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+            jsonStr = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+        } catch let error as NSError {
+            print(error)
+        }
+        return jsonStr
+    }
+
+
+}
+
 // lets work both the initializer from Json and the toJsonString methods.
 let s:Student = Student(jsonStr: "{\"name\":\"Tim\",\"studentid\":50,\"takes\":[\"Ser423\",\"Cse494\"]}")
 print("s as json \(s.toJsonString())")
 
+let p:PlaceDescription = PlaceDescription(jsonStr: "{\"name\":\"ASU-Poly\",\"description\":\"Home of ASU's Software Engineering Programs\",\"category\":\"school\",\"address-title\":\"ASU Software Engineering\",\"address-street\":[\"7171 E Sonoran Arroyo Mall\",\"Peralta Hall 230\",\"Mesa AZ 85212\"],\"elevation\":1384.0,\"latitude\":33.306388,\"longitude\":-111.679121}")
+print("p as json \(p.toJsonString())")
