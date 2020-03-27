@@ -78,13 +78,40 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        Log.d(getClass().getSimpleName(), "onStart()");
+        android.util.Log.w(this.getClass().getSimpleName(), "onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(getClass().getSimpleName(), "onResume()");
+        android.util.Log.w(this.getClass().getSimpleName(), "onResume");
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        android.util.Log.w(this.getClass().getSimpleName(), "onRestart");
+    }
+
+    //onPause
+    @Override
+    public void onPause() {
+        super.onPause();
+        android.util.Log.w(this.getClass().getSimpleName(), "onPause");
+    }
+
+    //onStop
+    @Override
+    public void onStop() {
+        super.onStop();
+        android.util.Log.w(this.getClass().getSimpleName(), "onStop");
+    }
+
+    //onDestroy
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        android.util.Log.w(this.getClass().getSimpleName(), "onDestroy");
     }
 
     public void startDialog(View v) {
