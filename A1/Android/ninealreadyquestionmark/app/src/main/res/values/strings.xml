@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EigthTry</string>
+
+    <string name="nameText">Name</string>
+
+    <string name="clickMe">Click Me</string>
+
+</resources>
