@@ -34,11 +34,11 @@ class SecondViewController: UIViewController {
         NSLog("In SecondViewController, viewDidLoad")
     }
     
-    @IBAction func popClicked(_ sender: Any) {
-        NSLog("In SecondViewController, popClicked")
+    //@IBAction func popClicked(_ sender: Any) {
+      //  NSLog("In SecondViewController, popClicked")
         // dismiss this view controller to the prior (pushed) view controller
-        self.dismiss(animated: false, completion: nil)
-    }
+        //self.dismiss(animated: true, completion: nil)
+    //}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,8 +55,19 @@ class SecondViewController: UIViewController {
         NSLog("In SecondViewController, viewWillAppear")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NSLog("In SecondViewController, viewDidAppear")
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NSLog("In SecondViewController, viewDidDisappear")
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSLog("In SecondViewController, viewWillDisappear")
+    }
+
 }

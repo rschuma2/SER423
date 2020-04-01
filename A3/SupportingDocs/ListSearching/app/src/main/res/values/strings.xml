@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ListSearching</string>
+    <string name="search_student">Search Student</string>
+    <string name="search">Search</string>
+    <string name="student">Student</string>
+    <string name="student_name">Student Name</string>
+    <string name="unknown">SerXXX</string>
+    <string name="course">Course</string>
+    <string name="allcourses">All Courses</string>
+    <string name="course_name">Course Name</string>
+    <string name="student_number">Student Number</string>
+    <string name="first">First</string>
+    <string name="last">Last</string>
+    <string name="prefix">Prefix</string>
+    <string name="title">Title</string>
+    <string name="action_back">Back</string>
+    <string name="action_add">Add</string>
+    <string name="action_remove">Remove</string>
+    <string name="student_list">Student List</string>
+    <string name="title_activity_student_display">StudentDisplayActivity</string>
+</resources>

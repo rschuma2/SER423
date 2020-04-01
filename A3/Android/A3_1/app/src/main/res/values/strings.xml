@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">A3_1</string>
+
+    <string name="nameText">Name</string>
+
+    <string name="clickMe">Click Me</string>
+</resources>

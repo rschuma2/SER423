@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="course_titles">
+        <item>Programming I</item>
+        <item>Language Design</item>
+        <item>Distributed Software</item>
+        <item>SE Design</item>
+        <item>SE Construction</item>
+        <item>Distributed Apps</item>
+        <item>Web and Mobile</item>
+        <item>Mobile Computing</item>
+    </string-array>
+
+    <string-array name="course_prefixes">
+        <item>Cse110</item>
+        <item>Cse340</item>
+        <item>Cse445</item>
+        <item>Ser315</item>
+        <item>Ser316</item>
+        <item>Ser321</item>
+        <item>Ser421</item>
+        <item>Ser423</item>
+    </string-array>
+
+</resources>

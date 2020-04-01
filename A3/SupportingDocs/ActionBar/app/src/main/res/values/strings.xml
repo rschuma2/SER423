@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ActionBar</string>
+    <string name="action_gimp">GIMP</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_dialog">DialogActivity</string>
+    <string name="dialog_button">OK</string>
+    <string name="dialog_text">This is the Dialog Message</string>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ListViewBaseAdapter</string>
+    <string name="first">First</string>
+    <string name="last">Last</string>
+    <string name="prefix">Prefix</string>
+    <string name="title">Title</string>
+    <string name="action_add">Add</string>
+    <string name="action_remove">Remove</string>
+    <string name="student_number">ID Number</string>
+    <string name="student_name">Name</string>
+    <string name="allcourses">Enroll</string>
+    <string name="unknown">SerXXX</string>
+    <string name="pref_title">Student Organization</string>
+    <string name="pref_app">Student App Preferences</string>
+    <string name="default_title">Software Engineering</string>
+    <string name="pref_title_summary">The organization of students you are managing</string>
+    <string name="pref_notify_on_add">Do you want notifications when you add a student</string>
+    <string name="pref_notify_add_title">Notify on Student Add</string>
+    <string name="pref_notify_on_remove">Do you want notifications when you remove a student</string>
+    <string name="pref_notify_on_remove_title">Notify on Student Remove</string>
+    <string name="menu_settings">Settings</string>
+    <string name="pref_notify">Notify</string>
+</resources>

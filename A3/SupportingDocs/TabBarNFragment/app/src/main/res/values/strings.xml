@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TabBarNFragment</string>
+    <string name="course">Course</string>
+    <string name="course_info">Course Information View</string>
+    <string name="student">Student</string>
+    <string name="student_info">Student Information View</string>
+</resources>

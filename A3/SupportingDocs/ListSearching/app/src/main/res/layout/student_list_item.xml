@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_yellow"
+    android:layout_marginLeft="40dp">
+
+    <TextView android:id="@+id/student_firstTV"
+        android:text="@string/first"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:width="75dp"/>
+
+    <TextView android:id="@+id/student_lastTV"
+        android:text="@string/last"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:width="100dp"/>
+
+    <TextView android:id="@+id/student_idTV"
+        android:text="@string/last"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:width="50dp"/>
+</LinearLayout>

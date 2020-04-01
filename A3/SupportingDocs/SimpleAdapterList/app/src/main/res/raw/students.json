@@ -1,0 +1,16 @@
+{
+  "Jim Buffett":{"name":"Jim Buffett", "studentid":50, "takes":[
+    {"prefix":"Ser423","title":"Mobile Computing"},
+    {"prefix":"Ser321","title":"Distributed Apps"},
+    {"prefix":"Cse110","title":"Programming I"},
+    {"prefix":"Cse340","title":"Language Design"}]},
+  "James Burton":{"name":"James Burton", "studentid":77, "takes":[
+    {"prefix":"Ser423","title":"Mobile Computing"},
+    {"prefix":"Cse340","title":"Language Design"}]},
+  "Sally Smith":{"name":"Sally Smith", "studentid":105, "takes":[
+    {"prefix":"Cse445","title":"Distributed Apps"},
+    {"prefix":"Cse110","title":"Programming I"},
+    {"prefix":"Ser423","title":"Mobile Computing"}]},
+  "James Jensen":{"name":"James Jensen", "studentid":110, "takes":[
+    {"prefix":"Cse110","title":"Programming I"},
+    {"prefix":"Ser423","title":"Mobile Computing"}]}}
