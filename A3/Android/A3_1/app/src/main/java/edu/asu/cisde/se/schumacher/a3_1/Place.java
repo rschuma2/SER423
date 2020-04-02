@@ -31,58 +31,119 @@ import org.json.JSONObject;
 
 import java.util.Vector;
 
+
+import java.io.Serializable;
+import java.util.Arrays;
+
+
 /**
  * Created by lindquis on 1/14/16.
  */
-public class Place {
+public class Place implements Serializable{
+
+    private static final boolean debugOn = false;
+
+
     public String name;
     public String description;
     public String category;
     public String addressTitle;
-    public Vector<String> addressStreet;
-    public String elevation;
-    public String latitude;
-    public String longitude;
-    Place(String jsonStr){
+    public String addressStreet;
+    public Double elevation;
+    public Double latitude;
+    public Double longitude;
+
+
+    public Place(String name, String description, String category, String addressTitle,
+                 String addressStreet, Double elevation, Double latitude, Double longitude) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.addressTitle = addressTitle;
+        this.addressStreet = addressStreet;
+        this.elevation = elevation;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Place(String jsonStr){
         try{
             JSONObject jo = new JSONObject(jsonStr);
             name = jo.getString("name");
             description = jo.getString("description");
             category = jo.getString("category");
             addressTitle = jo.getString("address-title");
-            addressStreet = new Vector<String>();
-            JSONArray ja = jo.getJSONArray("address-street");
-            for (int i=0; i< ja.length(); i++){
-                addressStreet.add(ja.getString(i));
-            }
-            elevation = jo.getString("elevation");
-            latitude = jo.getString("latitude");
-            longitude = jo.getString("longitude");
-            //latitude = jo.getDouble("latitude");
-            //longitude = jo.getDouble("longitude");
+            addressStreet = jo.getString("address-street");
+            elevation = jo.getDouble("elevation");
+            latitude = jo.getDouble("latitude");
+            longitude = jo.getDouble("longitude");
         }catch (Exception ex){
             android.util.Log.w(this.getClass().getSimpleName(),
                     "error converting to/from json");
         }
     }
-    public String toJsonString(){
-        String ret = "";
+
+
+    public Place(JSONObject jsonObj){
         try{
-            JSONObject jo = new JSONObject();
+            debug("constructor from json received: " + jsonObj.toString());
+            name = jsonObj.optString("name","unknown");
+            description = jsonObj.optString("description");
+            category = jsonObj.optString("category");
+            addressTitle = jsonObj.optString("address-title");
+            addressStreet = jsonObj.optString("address-street");
+            elevation = jsonObj.optDouble("studentid");
+            latitude = jsonObj.optDouble("latitude");
+            longitude = jsonObj.optDouble("longitude");
+        }catch(Exception ex){
+            android.util.Log.d(this.getClass().getSimpleName(), "error getting Student from json string");
+        }
+    }
+
+
+    public JSONObject toJson(){
+        JSONObject jo = new JSONObject();
+        try{
             jo.put("name",name);
-            jo.put("description", description);
-            jo.put("category", category);
-            jo.put("addressTitle", addressTitle);
-            JSONArray ja = new JSONArray(addressStreet);
-            jo.put("addressStreet",ja);
+            jo.put("description",description);
+            jo.put("category",category);
+            jo.put("addressTitle",addressTitle);
+            jo.put("addressStreet",addressStreet);
             jo.put("elevation",elevation);
             jo.put("latitude",latitude);
             jo.put("longitude",longitude);
-            ret = jo.toString();
         }catch (Exception ex){
-            android.util.Log.w(this.getClass().getSimpleName(),
-                    "error converting to/from json");
+            android.util.Log.d(this.getClass().getSimpleName(), "error getting Student from json string");
+        }
+        return jo;
+    }
+
+
+    public String toJsonString(){
+        String ret = "";
+        try{
+            ret = this.toJson().toString();
+        }catch (Exception ex){
+            android.util.Log.d(this.getClass().getSimpleName(), "error getting Student from json string");
         }
         return ret;
     }
+
+    /*
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student ").append(name).append(" has id ");
+        sb.append(studentid).append(" and takes courses ");
+        for (int i=0; i<takes.size(); i++){
+            sb.append(takes.get(i).toString()).append(" ");
+        }
+        return sb.toString();
+    }
+     */
+
+    private void debug(String message) {
+        if (debugOn)
+            android.util.Log.d(this.getClass().getSimpleName(), message);
+    }
+
 }

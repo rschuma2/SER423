@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
         name = (TextView) findViewById(R.id.nameTV);
         description = (TextView) findViewById(R.id.descriptionTV);
         category = (TextView) findViewById(R.id.categoryTV);
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         elevation = (TextView) findViewById(R.id.elevationTV);
         latitude = (TextView) findViewById(R.id.latitudeTV);
         longitude = (TextView) findViewById(R.id.longitudeTV);
-        jo = new Place("{\"name\":\"ASU-Poly\",\"description\":\"Home of ASU's Software Engineering Programs\",\"category\":\"school\",\"address-title\":\"ASU Software Engineering\",\"address-street\":[\"7171 E Sonoran Arroyo Mall\",\"Peralta Hall 230\",\"Mesa AZ 85212\"],\"elevation\":1384.0,\"latitude\":33.306388,\"longitude\":-111.679121}");
+         */
+        //jo = new Place("{\"name\":\"ASU-Poly\",\"description\":\"Home of ASU's Software Engineering Programs\",\"category\":\"school\",\"address-title\":\"ASU Software Engineering\",\"address-street\":[\"7171 E Sonoran Arroyo Mall\",\"Peralta Hall 230\",\"Mesa AZ 85212\"],\"elevation\":1384.0,\"latitude\":33.306388,\"longitude\":-111.679121}");
 
     }
 

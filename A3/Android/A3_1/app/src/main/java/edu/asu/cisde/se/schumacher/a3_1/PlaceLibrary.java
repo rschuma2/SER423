@@ -60,7 +60,7 @@ public class PlaceLibrary extends Object implements Serializable {
         boolean ret = true;
         try {
             places.clear();
-            InputStream is = parent.getApplicationContext().getResources().openRawResource(R.raw.students);
+            InputStream is = parent.getApplicationContext().getResources().openRawResource(R.raw.places);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             // note that the json is in a multiple lines of input so need to read line-by-line
             StringBuffer sb = new StringBuffer();
@@ -72,10 +72,10 @@ public class PlaceLibrary extends Object implements Serializable {
             Iterator<String> it = studentsJson.keys();
             while (it.hasNext()) {
                 String sName = it.next();
-                JSONObject aStud = studentsJson.optJSONObject(sName);
-                debug("importing student named " + sName + " json is: " + aStud.toString());
-                if (aStud != null) {
-                    Place stu = new Place(aStud.toString());
+                JSONObject aPlace = studentsJson.optJSONObject(sName);
+                debug("importing student named " + sName + " json is: " + aPlace.toString());
+                if (aPlace != null) {
+                    Place stu = new Place(aPlace.toString());
                     places.put(sName, stu);
                 }
             }
@@ -86,11 +86,11 @@ public class PlaceLibrary extends Object implements Serializable {
         return ret;
     }
 
-    public boolean add(Place aStud) {
+    public boolean add(Place aPlace) {
         boolean ret = true;
-        debug("adding student named: " + ((aStud == null) ? "unknown" : aStud.name));
+        debug("adding student named: " + ((aPlace == null) ? "unknown" : aPlace.name));
         try {
-            places.put(aStud.name, aStud);
+            places.put(aPlace.name, aPlace);
         } catch (Exception ex) {
             ret = false;
         }
@@ -115,9 +115,9 @@ public class PlaceLibrary extends Object implements Serializable {
         String ret = "unknown";
         String[] keys = (String[]) (places.keySet()).toArray(new String[0]);
         for (int i = 0; i < keys.length; i++) {
-            Place aStud = places.get(keys[i]);
-            if (aStud.studentid == id) {
-                ret = aStud.name;
+            Place aPlace = places.get(keys[i]);
+            if (aPlace.studentid == id) {
+                ret = aPlace.name;
                 break;
             }
         }
@@ -126,9 +126,9 @@ public class PlaceLibrary extends Object implements Serializable {
 
     public Place get(String aName) {
         Place ret = new Place("unknown", 0, new places[]{new Course("empty", "empty")});
-        Place aStud = places.get(aName);
-        if (aStud != null) {
-            ret = aStud;
+        Place aPlace = places.get(aName);
+        if (aPlace != null) {
+            ret = aPlace;
         }
         return ret;
     }
