@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">A3_1</string>
 
-    <string name="nameText">Name</string>
 
-    <string name="clickMe">Click Me</string>
+    <string name="place">Place</string>
+    <string name="place_name">Place Name</string>
+    <string name="unknown">SerXXX</string>
+    <string name="place_description">Place Description</string>
+    <string name="first">First</string>
+    <string name="action_back">Back</string>
+    <string name="action_add">Add</string>
+    <string name="action_remove">Remove</string>
+    <string name="place_list">Place List</string>
 </resources>

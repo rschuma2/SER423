@@ -58,7 +58,7 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
         AdapterView.OnItemSelectedListener,
         DialogInterface.OnClickListener {
 
-    private PlaceLibrary places;
+    private PlaceLibrary students;
     private TextView stud_numberTV;
     private ListView courseLV;
     private String selectedStud, selectedCourse;
@@ -85,10 +85,10 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
         selectedCourse = availPrefixes.length>0 ? availPrefixes[0] : getString(R.string.unknown);
 
         Intent intent = getIntent();
-        places = intent.getSerializableExtra("students")!=null ? (PlaceLibrary)intent.getSerializableExtra("students") :
+        students = intent.getSerializableExtra("students")!=null ? (PlaceLibrary)intent.getSerializableExtra("students") :
                 new PlaceLibrary(this);
         selectedStud = intent.getStringExtra("selected")!=null ? intent.getStringExtra("selected") : "unknown";
-        Place aStud = places.get(selectedStud);
+        Student aStud = students.get(selectedStud);
         stud_numberTV.setText("ID # "+Integer.toString(aStud.studentid));
 
         this.prepareAdapter();
@@ -127,7 +127,7 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
             case android.R.id.home:
                 android.util.Log.d(this.getClass().getSimpleName(),"onOptionsItemSelected -> home");
                 Intent i = new Intent();
-                i.putExtra("students", places);
+                i.putExtra("students", students);
                 this.setResult(RESULT_OK,i);
                 finish();
                 return true;
@@ -144,7 +144,7 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
     private void prepareAdapter(){
         colLabels = this.getResources().getStringArray(R.array.col_header_course);
         colIds = new int[] {R.id.course_prefix, R.id.course_title};
-        Place aStud = places.get(selectedStud);
+        Student aStud = students.get(selectedStud);
 
         // the model
         // first row is header strings for the columns
@@ -169,7 +169,7 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
     // log the selection when its not the header row.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-        Place aStud = places.get(selectedStud);
+        Student aStud = students.get(selectedStud);
         if (position > 0 && position < aStud.takes.size()+1) {
             String prefix = aStud.takes.get(position - 1).prefix;
             String title = aStud.takes.get(position - 1).title;
@@ -210,10 +210,10 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
     public void addClicked (View v) {
         // the course is not unknown and then the course isn't already in takes
         if(!this.selectedCourse.equalsIgnoreCase("unknown") &&
-                this.findPrefix(places.get(this.selectedStud).takes,this.selectedCourse)<0){
+                this.findPrefix(students.get(this.selectedStud).takes,this.selectedCourse)<0){
             Course aCourse = new Course(this.selectedCourse,
                     availTitles[Arrays.asList(availPrefixes).indexOf(this.selectedCourse)]);
-            (places.get(this.selectedStud).takes).add(aCourse);
+            (students.get(this.selectedStud).takes).add(aCourse);
         }
         this.prepareAdapter();
         SimpleAdapter sa = new SimpleAdapter(this, fillMaps, R.layout.course_list_item, colLabels, colIds);
@@ -223,7 +223,7 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
 
     // remove the course selected from all courses spinner from the student's takes, if present
     public void removeClicked (View v) {
-        int isWhere = this.findPrefix(places.get(this.selectedStud).takes,this.selectedCourse);
+        int isWhere = this.findPrefix(students.get(this.selectedStud).takes,this.selectedCourse);
         // the course is not unknown and then the course is in takes
         if(!this.selectedCourse.equalsIgnoreCase("unknown") && isWhere > -1){
             students.get(this.selectedStud).takes.remove(isWhere);
@@ -264,9 +264,9 @@ public class PlaceDisplayActivity extends AppCompatActivity implements ListView.
                 (whichButton==DialogInterface.BUTTON_POSITIVE));
         if(whichButton == DialogInterface.BUTTON_POSITIVE) {
             // ok, so remove the student and return the modified model to main activity
-            places.remove(this.selectedStud);
+            students.remove(this.selectedStud);
             Intent i = new Intent();
-            i.putExtra("students", places);
+            i.putExtra("students", students);
             this.setResult(RESULT_OK,i);
             finish();
         }
