@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/light_yellow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clickMeButtonID"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/descriptionTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/categoryTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/addressTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/addressStreetTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addressTitleTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/elevationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addressStreetTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/latitudeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/elevationTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/longitudeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/latitudeTV"
+        android:layout_marginTop="-2dp"/>
+        android:text="@string/name" />
+
+    <include
+        android:id="@+id/include"/>
+        layout="@layout/content_main" />
+
+</LinearLayout>

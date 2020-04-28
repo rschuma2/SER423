@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project name="JsonRPC in CPP using libjson-rpc-cpp" default="targets">
+   <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+   <property name="src.dir" value="src"/>
+   <property name="dist.dir" value="bin"/>
+   <property name="classes.dir" value="classes"/>
+   <property name="obj.dir" value="obj"/>
+   <property name="host.name" value="127.0.0.1"/>
+   <property name="port.num" value="8080"/>
+   <property name="json.file.name" value="MediaLibraryMethods.json"/>
+   <property environment="env"/>
+   <property name="ostype" value="${env.OSTYPE}"/>
+
+   <target name="targets">
+      <echo message="Targets are clean, prepare, build.java.server, targets"/>
+      <echo message="base directory is: ${basedir}"/>
+      <echo message="base directory is: ${basedir}"/>
+      <echo message="invoke java server with: java -cp classes:lib/json.jar ser423.student.server.StudentJsonRPCServer ${port.num}"/>
+      <echo message="or, java -jar lib/studentserver.jar ${port.num}"/>
+   </target>
+
+   <path id="compile.classpath">
+      <pathelement location="${build}"/>
+      <fileset dir="${basedir}/lib">
+         <include name="json.jar"/>
+      </fileset>
+   </path>
+
+   <target name="clean">
+      <delete dir="${classes.dir}" failonerror="false"/>
+      <delete file="lib/studentserver.jar" failonerror="false"/>
+   </target>
+
+   <target name="prepare">
+      <mkdir dir="${classes.dir}"/>
+   </target>
+
+   <target name="build.java.server" depends="prepare"
+          description="Compile Java server sources">
+     <!-- Compile Java classes as necessary -->
+     <echo message="java -cp classes:lib/json.jar ser423.student.server.StudentServer 8080"/>
+      <echo message="or, java -jar lib/studentserver.jar ${port.num}"/>
+     <javac srcdir="${src.dir}/server"
+            destdir="${classes.dir}"
+            includeantruntime="false">
+        <classpath refid="compile.classpath"/>
+    </javac>
+    <jar destfile="lib/studentserver.jar"
+         manifest="manifestStudentServer.txt">
+            <fileset dir="${classes.dir}" includes="ser423/student/server/*.class"/>
+            <zipgroupfileset dir="lib">
+                 <include name="json.jar"/>
+            </zipgroupfileset>
+    </jar>
+  </target>
+
+</project>

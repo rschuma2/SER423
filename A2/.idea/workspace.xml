@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f798043-5250-433a-a11b-c2c22de3193a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../A1/Android/ninealreadyquestionmark/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A1/Android/ninealreadyquestionmark/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/java/edu/asu/cisde/se/schumacher/a3_1/PlaceDetailActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/res/layout/place_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/java/edu/asu/cisde/se/schumacher/a3_1/PlaceDisplayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/java/edu/asu/cisde/se/schumacher/a3_1/PlaceDisplayActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/res/layout/place_display.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/res/layout/place_display.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/res/layout/place_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3/Android/A3_1/app/src/main/res/layout/place_list_item.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,5 +46,16 @@
       <updated>1585318011898</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

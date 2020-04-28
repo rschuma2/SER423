@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:id="@+id/placeDescriptionTV"
+            android:id="@+id/place_descriptionTV"
             android:hint="@string/place_description"
             android:layout_weight="1"/>
     </LinearLayout>

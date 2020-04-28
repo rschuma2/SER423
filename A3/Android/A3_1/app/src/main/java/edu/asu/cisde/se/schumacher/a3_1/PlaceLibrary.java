@@ -88,7 +88,7 @@ public class PlaceLibrary extends Object implements Serializable {
 
     public boolean add(Place aPlace) {
         boolean ret = true;
-        debug("adding student named: " + ((aPlace == null) ? "unknown" : aPlace.name));
+        debug("adding place named: " + ((aPlace == null) ? "unknown" : aPlace.name));
         try {
             places.put(aPlace.name, aPlace);
         } catch (Exception ex) {
@@ -98,34 +98,21 @@ public class PlaceLibrary extends Object implements Serializable {
     }
 
     public boolean remove(String aName) {
-        debug("removing student named: " + aName);
+        debug("removing place named: " + aName);
         return ((places.remove(aName) == null) ? false : true);
     }
 
     public String[] getNames() {
         String[] ret = {};
-        debug("getting " + places.size() + " student names.");
+        debug("getting " + places.size() + " place names.");
         if (places.size() > 0) {
             ret = (String[]) (places.keySet()).toArray(new String[0]);
         }
         return ret;
     }
 
-    public String getById(int id) {
-        String ret = "unknown";
-        String[] keys = (String[]) (places.keySet()).toArray(new String[0]);
-        for (int i = 0; i < keys.length; i++) {
-            Place aPlace = places.get(keys[i]);
-            if (aPlace.studentid == id) {
-                ret = aPlace.name;
-                break;
-            }
-        }
-        return ret;
-    }
-
     public Place get(String aName) {
-        Place ret = new Place("unknown", 0, new places[]{new Course("empty", "empty")});
+        Place ret = new Place("","","","","",0.0,0.0,0.0);
         Place aPlace = places.get(aName);
         if (aPlace != null) {
             ret = aPlace;

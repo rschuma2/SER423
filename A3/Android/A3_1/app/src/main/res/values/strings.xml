@@ -11,4 +11,6 @@
     <string name="action_add">Add</string>
     <string name="action_remove">Remove</string>
     <string name="place_list">Place List</string>
+    <string name="name">Name</string>
+    <string name="description">description</string>
 </resources>

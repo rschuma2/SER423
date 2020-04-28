@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/light_green"
+    tools:context="edu.asu.cidse.se.lindquis.studentcoursesqliteapp.MainActivity">
+
+    <TextView
+        android:text="@string/information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/info_title"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_view"
+        android:layout_below="@id/info_title"
+        android:paddingBottom="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:id="@+id/nameLabel"
+            android:text="@string/name"
+            android:gravity="left"
+            android:layout_weight="0.10" />
+
+        <EditText
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:id="@+id/nameET"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:editable="true"
+            android:hint=""
+            android:layout_weight="0.15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/major_view"
+        android:layout_below="@id/name_view"
+        android:paddingBottom="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:id="@+id/majorLab"
+            android:text="@string/major"
+            android:gravity="left"
+            android:layout_weight="0.10" />
+
+        <EditText
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:layout_weight="0.15"
+            android:id="@+id/majorET"
+            android:gravity="right"
+            android:editable="true"
+            android:hint="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_view"
+        android:layout_below="@id/major_view"
+        android:paddingBottom="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:id="@+id/emailLabel"
+            android:text="@string/email"
+            android:gravity="left" />
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            android:id="@+id/emailET"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:editable="true"
+            android:hint=""
+            android:layout_weight="0.15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/num_view"
+        android:layout_below="@id/email_view"
+        android:paddingBottom="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:id="@+id/numLabel"
+            android:text="@string/number"
+            android:gravity="left" />
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:id="@+id/numET"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:editable="true"
+            android:hint=""
+            android:layout_weight="0.15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_view"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/num_view">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:onClick="addClicked"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_weight="0.33"
+            android:id="@+id/addButt" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:onClick="removeClicked"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove"
+            android:layout_weight="0.33"
+            android:id="@+id/removeButt" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_view"
+        android:paddingBottom="10dp"
+        android:layout_below="@id/button_view">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentNamesSpinner"
+        android:layout_marginTop="10dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/courseSpinner"
+        android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

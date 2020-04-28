@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         Arrays.sort(placeNames);
         if(position > 0 && position <= placeNames.length) {
             android.util.Log.d(this.getClass().getSimpleName(), "in method onItemClick. selected: " + placeNames[position-1]);
-            Intent displayPlace = new Intent(this, PlaceDisplayActivity.class);
+            Intent displayPlace = new Intent(this, PlaceDetailActivity.class);
             displayPlace.putExtra("places", places);
             displayPlace.putExtra("selected", placeNames[position-1]);
             this.startActivityForResult(displayPlace, 1);
@@ -168,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         this.descriptionBox = new EditText(this);
         descriptionBox.setHint("Description");
-        descriptionBox.setInputType(InputType.TYPE_CLASS_NUMBER);
         layout.addView(descriptionBox);
         dialog.setView(layout);
         dialog.setNegativeButton("Cancel", this);

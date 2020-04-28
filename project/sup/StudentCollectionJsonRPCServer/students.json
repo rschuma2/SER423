@@ -1,0 +1,5 @@
+{
+    "Jim Buffett":{"name":"Jim Buffett", "studentid":50, "takes":["Ser423","Ser321","Cse494","Ser598"]},
+    "Sally Smith":{"name":"Sally Smith", "studentid":105, "takes":["Cse494","Cse445"]},
+    "Tim Lindquist":{"name":"Tim Lindquist", "studentid":55, "takes":["Ser423","Ser321"]}
+}
