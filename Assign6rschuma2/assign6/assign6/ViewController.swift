@@ -20,15 +20,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var placeElevationLabel: UILabel!
     @IBOutlet weak var placeImageLabel: UILabel!
     
-    var places:[String:Place] = [String:Place]()
     var selectedPlace:String = "unknown"
     var names:[String]=[String]()
+
     var urlString:String = "http://127.0.0.1:8080"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.urlString = self.setURL()
-        self.callGetNamesNUpdateStudentsPicker()
+        self.callGetNPopulatUIFields(self.selectedPlace)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,32 +51,6 @@ class ViewController: UIViewController {
         }
         print("setURL returning: \(serverprotocol)://\(serverhost):\(jsonrpcport)")
         return "\(serverprotocol)://\(serverhost):\(jsonrpcport)"
-    }
-
-    func callGetNamesNUpdateStudentsPicker() {
-        let aConnect:PlaceLibraryStub = PlaceLibraryStub(urlString: urlString)
-        let _:Bool = aConnect.getNames(callback: { (res: String, err: String?) -> Void in
-            if err != nil {
-                NSLog(err!)
-            }else{
-                NSLog(res)
-                if let data: Data = res.data(using: String.Encoding.utf8){
-                    do{
-                        let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:AnyObject]
-                        self.names = (dict!["result"] as? [String])!
-                        self.names = Array(self.names).sorted()
-                        //self.studSelectTF.text = ((self.students.count>0) ? self.students[0] : "")
-                        //self.studentPicker.reloadAllComponents()
-                        if self.names.count > 0 {
-                            self.callGetNPopulatUIFields(self.selectedPlace)
-                        }
-                    } catch {
-                        print("unable to convert to dictionary")
-                    }
-                }
-                
-            }
-        })  // end of method call to getNames
     }
     
     func callGetNPopulatUIFields(_ name: String){
