@@ -109,6 +109,7 @@
 			children = (
 				94790B1224577A1E00CC2B40 /* AppDelegate.swift */,
 				94790B1424577A1E00CC2B40 /* SceneDelegate.swift */,
+				945E5D712458A17E00FE84B1 /* PlaceTableViewController.swift */,
 				94790B1624577A1E00CC2B40 /* ViewController.swift */,
 				94790B1824577A1E00CC2B40 /* Main.storyboard */,
 				94790B1B24577A2500CC2B40 /* Assets.xcassets */,
@@ -117,7 +118,6 @@
 				94790B2024577A2500CC2B40 /* Info.plist */,
 				94790B4424577E4F00CC2B40 /* Place.swift */,
 				94790B4624578CFE00CC2B40 /* PlaceLibraryStub.swift */,
-				945E5D712458A17E00FE84B1 /* PlaceTableViewController.swift */,
 			);
 			path = assign6;
 			sourceTree = "<group>";

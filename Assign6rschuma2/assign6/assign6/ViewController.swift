@@ -11,10 +11,18 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeDescriptionLabel: UILabel!
+    @IBOutlet weak var placeCategoryLabel: UILabel!
+    @IBOutlet weak var placeAddressTitleLabel: UILabel!
+    @IBOutlet weak var placeAddressStreetLabel: UILabel!
+    @IBOutlet weak var placeLatitudeLabel: UILabel!
+    @IBOutlet weak var placeLongitudeLabel: UILabel!
+    @IBOutlet weak var placeElevationLabel: UILabel!
+    @IBOutlet weak var placeImageLabel: UILabel!
     
-    var selectedPlace:String=""
-    var places:[String]=[String]()
-
+    var places:[String:Place] = [String:Place]()
+    var selectedPlace:String = "unknown"
+    var names:[String]=[String]()
     var urlString:String = "http://127.0.0.1:8080"
     
     override func viewDidLoad() {
@@ -55,12 +63,12 @@ class ViewController: UIViewController {
                 if let data: Data = res.data(using: String.Encoding.utf8){
                     do{
                         let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:AnyObject]
-                        self.places = (dict!["result"] as? [String])!
-                        self.places = Array(self.places).sorted()
+                        self.names = (dict!["result"] as? [String])!
+                        self.names = Array(self.names).sorted()
                         //self.studSelectTF.text = ((self.students.count>0) ? self.students[0] : "")
                         //self.studentPicker.reloadAllComponents()
-                        if self.places.count > 0 {
-                            self.callGetNPopulatUIFields(self.places[0])
+                        if self.names.count > 0 {
+                            self.callGetNPopulatUIFields(self.selectedPlace)
                         }
                     } catch {
                         print("unable to convert to dictionary")
@@ -83,11 +91,15 @@ class ViewController: UIViewController {
                         let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:AnyObject]
                         let aDict:[String:AnyObject] = (dict!["result"] as? [String:AnyObject])!
                         let aPlace:Place = Place(dict: aDict)
-                        //self.studentNumTF.text = "\(aStud.studentid)"
                         self.placeNameLabel.text = aPlace.name
-                        //self.takes = Array(aStud.takes).sorted()
-                        //self.takesTF.text = ((self.takes.count > 0) ? self.takes[0] : "")
-                        //self.takesPicker.reloadAllComponents()
+                        self.placeDescriptionLabel.text = aPlace.description
+                        self.placeCategoryLabel.text = aPlace.category
+                        self.placeAddressTitleLabel.text = aPlace.address_title
+                        self.placeAddressStreetLabel.text = aPlace.address_street
+                        self.placeLatitudeLabel.text = "\(aPlace.latitude)"
+                        self.placeLongitudeLabel.text = "\(aPlace.longitude)"
+                        self.placeElevationLabel.text = "\(aPlace.elevation)"
+                        self.placeImageLabel.text = aPlace.image
                     } catch {
                         NSLog("unable to convert to dictionary")
                     }
