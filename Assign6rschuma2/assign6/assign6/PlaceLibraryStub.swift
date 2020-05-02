@@ -1,13 +1,5 @@
-//
-//  PlaceLibraryStub.swift
-//  assign6
-//
-//  Created by ry of rykel on 4/27/20.
-//  Copyright © 2020 Ryan Schumacher. All rights reserved.
-//
-
-/*
- * Copyright 2020 Tim Lindquist,
+ /*
+ * Copyright 2020 Ryan Schumacher,
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +12,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * ASU and SER423 instructor and staff have the right to build and evaluate this
+ * software package for the purpose of determining a grade and program assessment
  *
- * Purpose: Example Swift Client for a Java student collection JsonRPC server.
+ * PlaceLibraryStub.swift
+ * assign6
+ * Purpose: Swift Client stub for a Java Place Library JsonRPC server.
  *
  * Ser423 Mobile Applications
  * see http://pooh.poly.asu.edu/Mobile
- * @author Tim Lindquist Tim.Lindquist@asu.edu
- *         Software Engineering, CIDSE, IAFSE, ASU Poly
- * @version April, 20, 2020
+ * @author Ryan Schumacher mailto:rschuma2@asu.edu
+ *         Software Engineering, BSSE, IAFSE, Online
+ * @version April, 29, 2020
  */
 
 import Foundation
@@ -94,20 +90,6 @@ public class PlaceLibraryStub {
         PlaceLibraryStub.id = PlaceLibraryStub.id + 1
         do {
             let dict:[String:Any] = ["jsonrpc":"2.0", "method":"getNames", "params":[ ], "id":PlaceLibraryStub.id]
-            let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
-            self.asyncHttpPostJSON(url: self.url, data: reqData, completion: callback)
-            ret = true
-        } catch let error as NSError {
-            print(error)
-        }
-        return ret
-    }
-
-    func getCategoryNames(callback: @escaping (String, String?) -> Void) -> Bool{
-        var ret:Bool = false
-        PlaceLibraryStub.id = PlaceLibraryStub.id + 1
-        do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"getCategoryNames", "params":[ ], "id":PlaceLibraryStub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
             self.asyncHttpPostJSON(url: self.url, data: reqData, completion: callback)
             ret = true
